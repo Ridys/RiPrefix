@@ -15,18 +15,20 @@ public class MainCmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
         Player player = null;
+        String perms = plugin.getConfig().getString("lang.perm");
+        String onlypl = plugin.getConfig().getString("lang.player_only");
         if (sender instanceof Player) {
             player = (Player) sender;
         }
         if (args.length == 0) {
 	        if (player == null) {
-	            sender.sendMessage(ChatColor.DARK_RED + "This command can only be run by a player");    
+	            sender.sendMessage(ChatColor.DARK_RED + onlypl);    
 	        } else {
-	            player.sendMessage(ChatColor.GREEN + "[RiPrefix]" + ChatColor.BLUE + " Commands Help");
-	            player.sendMessage(ChatColor.GOLD + "/rips" + ChatColor.RED + " - This help page");
-	            player.sendMessage(ChatColor.GOLD + "/rips me [Prefix]" + ChatColor.RED + " - Set prefix for you");
-	            player.sendMessage(ChatColor.GOLD + "/rips set [Player] [Prefix]" + ChatColor.RED + " - Set player prefix");
-	            player.sendMessage(ChatColor.GOLD + "/rips reset [Player]" + ChatColor.RED + " - Reset player prefix");
+	            player.sendMessage(ChatColor.GREEN + "[RiPrefix] " + ChatColor.BLUE + plugin.getConfig().getString("lang.help_title"));
+	            player.sendMessage(ChatColor.GOLD + "/rips " + ChatColor.RED + plugin.getConfig().getString("lang.help_help"));
+	            player.sendMessage(ChatColor.GOLD + "/rips me [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_me"));
+	            player.sendMessage(ChatColor.GOLD + "/rips set [Player] [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_set"));
+	            player.sendMessage(ChatColor.GOLD + "/rips reset [Player] " + ChatColor.RED + plugin.getConfig().getString("lang.help_reset"));
 	        }
 	        return true;
         }
@@ -41,7 +43,7 @@ public class MainCmd implements CommandExecutor {
         		if (player.hasPermission("riprefix.set")) {
         			sender.sendMessage("Set command: " + args[1] + args[2]);
         		} else {
-        			sender.sendMessage(ChatColor.RED + "You don't have permission to use this command.");
+        			sender.sendMessage(ChatColor.RED + perms);
         		}
         	}
 	        return true;
@@ -53,7 +55,7 @@ public class MainCmd implements CommandExecutor {
         		if (player.hasPermission("riprefix.reset")) {
         			sender.sendMessage("Reset command: " + args[1]);
         		} else {
-        			sender.sendMessage(ChatColor.RED + "You don't have permission to use this command.");
+        			sender.sendMessage(ChatColor.RED + perms);
         		}
         	}
 	        return true;

@@ -1,0 +1,16 @@
+main:
+# Select permissions plugin:
+# 0 - PermissionsEx
+# 1 - GroupManager
+  mode: 0
+# Enable (true) or disable (false) support ColoredTags plugin
+  coloredtags: false
+lang:
+### Language settings ###
+  player_only: "This command can only be run by a player"
+  help_title: "Commands Help"
+  help_help: "This help page"
+  help_me: "Set prefix for you"
+  help_set: "Set prefix for player"
+  help_reset: "Reset player prefix"
+  perm: "You don't have permission to use this command."
