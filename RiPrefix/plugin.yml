@@ -6,6 +6,6 @@ description: The plugin allows your players to set prefixes in the chat
 website: https://dmitry.win
 version: 0.1
 commands:
-   basic:
+   rips:
       description: Plugin help
       usage: /rips
