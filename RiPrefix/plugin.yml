@@ -8,4 +8,4 @@ version: 0.1
 commands:
    rips:
       description: Plugin help
-      usage: /rips
+      usage: Use /rips for help with this command
