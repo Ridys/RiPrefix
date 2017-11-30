@@ -1,11 +1,9 @@
 package me.ridys.RiPrefix;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class MainCmd implements CommandExecutor {
@@ -35,16 +33,15 @@ public class MainCmd implements CommandExecutor {
 	        }
 	        return true;
         }
-        ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
         if (args[0].equalsIgnoreCase("me") && args.length > 1 && args[1] != null && player.hasPermission("riprefix.me")) {
         	switch (m) {
         		case 0:
-        			Bukkit.dispatchCommand(console, "pex user " + player.getName() + " set prefix " + args[1]);
+        			PEXHandler.setPEX(player, args[1]);
         			if(ct) { CTagsH.setCTag(player, args[1]); }
         			break;
         	    case 1:
         	    	sender.sendMessage("Me command mode 1: " + args[1]);
-        	    	if(ct) { sender.sendMessage("Ctags ON"); }
+        	    	if(ct) { CTagsH.setCTag(player, args[1]); }
         	    	break;
         	    default:
         	    	sender.sendMessage(ChatColor.RED + "The mode of the plugin is not correct. Check the configuration.");

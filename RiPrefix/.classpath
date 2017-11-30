@@ -8,5 +8,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/DATA/Dev/Eclipse/ColoredTags.jar"/>
+	<classpathentry kind="lib" path="D:/DATA/Dev/PermissionsEx-1.23.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

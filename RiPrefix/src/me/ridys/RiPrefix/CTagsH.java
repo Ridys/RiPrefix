@@ -24,7 +24,6 @@ public class CTagsH {
         }
         ColoredTags.updateNametag(p);
         ColoredTags.updateTab(p);
-        p.sendMessage(b==false?"§aПрефикс в TAB установлен.": "§aПрефикс в TAB удалён.");
     }
 
 }
