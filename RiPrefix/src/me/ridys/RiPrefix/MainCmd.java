@@ -40,7 +40,7 @@ public class MainCmd implements CommandExecutor {
         			if(ct) { CTagsH.setCTag(player, args[1]); }
         			break;
         	    case 1:
-        	    	sender.sendMessage("Me command mode 1: " + args[1]);
+        	    	GMHandler.setGM(player, args[1]);
         	    	if(ct) { CTagsH.setCTag(player, args[1]); }
         	    	break;
         	    default:
