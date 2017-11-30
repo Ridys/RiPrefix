@@ -36,11 +36,19 @@ public class MainCmd implements CommandExecutor {
         if (args[0].equalsIgnoreCase("me") && args.length > 1 && args[1] != null && player.hasPermission("riprefix.me")) {
         	switch (m) {
         		case 0:
-        			PEXHandler.setPEX(player, args[1]);
+        			if(PEXHandler.setPEX(player, args[1])) {
+        				sender.sendMessage(plugin.getConfig().getString("lang.changed"));
+        			} else { 
+        				sender.sendMessage(plugin.getConfig().getString("lang.deleted"));
+        			}
         			if(ct) { CTagsH.setCTag(player, args[1]); }
         			break;
         	    case 1:
-        	    	GMHandler.setGM(player, args[1]);
+        	    	if (GMHandler.setGM(player, args[1])) {
+        	    		sender.sendMessage(plugin.getConfig().getString("lang.changed"));
+        	    	} else {
+        	    		sender.sendMessage(plugin.getConfig().getString("lang.deleted"));
+        	    	}
         	    	if(ct) { CTagsH.setCTag(player, args[1]); }
         	    	break;
         	    default:

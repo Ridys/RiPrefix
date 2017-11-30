@@ -25,15 +25,17 @@ public class GMHandler {
         return gm_user.getVariables().getVarString("prefix");
     }
 	
-	public static void setGM(Player player, String prefix) {
+	public static boolean setGM(Player player, String prefix) {
 		if (getUserPrefix(player).length() == 0) {
 			User gm_user = getGMUser(player);
 	        gm_user.getVariables().addVar("prefix", prefix);
 	        player.sendMessage("§aPrefix succesfully set.");
+	        return true;
 		} else {
 			User gm_user = getGMUser(player);
 			gm_user.getVariables().removeVar("prefix");
 			player.sendMessage("§dPrefix removed.");
+			return false;
 		}
 	}
 

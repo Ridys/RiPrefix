@@ -14,3 +14,5 @@ lang:
   help_set: "Set prefix for player"
   help_reset: "Reset player prefix"
   perm: "You don't have permission to use this command."
+  changed: "§aYour prefix has been successfully changed!"
+  deleted: "§dYour prefix has been removed!"
