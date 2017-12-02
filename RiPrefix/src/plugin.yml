@@ -3,7 +3,7 @@ main: me.ridys.RiPrefix.RiPrefix
 load: POSTWORLD
 author: Ridys
 description: The plugin allows your players to set prefixes in the chat
-website: https://dmitry.win
+website: https://ci.dmitry.win/job/RiPrefix/
 version: 0.1
 commands:
    rips:
