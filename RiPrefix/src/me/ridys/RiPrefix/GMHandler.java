@@ -1,6 +1,7 @@
 package me.ridys.RiPrefix;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -35,6 +36,12 @@ public class GMHandler {
 			gm_user.getVariables().removeVar("prefix");
 			return false;
 		}
+	}
+
+	public static void setGMop(String p, String prefix) {
+		ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+		String command = "manuaddv " + p + " prefix " + prefix;
+		Bukkit.dispatchCommand(console, command);
 	}
 
 }

@@ -52,7 +52,7 @@ public class MainCmd implements CommandExecutor {
         	    	if(ct) { CTagsH.setCTag(player, args[1]); }
         	    	break;
         	    default:
-        	    	sender.sendMessage(ChatColor.RED + "The mode of the plugin is not correct. Check the configuration.");
+        	    	sender.sendMessage(ChatColor.RED +  plugin.getConfig().getString("lang.corrupted"));
         	    	break;
         	}
 	        return true;
@@ -66,15 +66,11 @@ public class MainCmd implements CommandExecutor {
         			if(ct) { CTagsH.setCTagop(args[1], args[2]); }
         			break;
         	    case 1:
-        	    	if (GMHandler.setGM(player, args[1])) {
-        	    		sender.sendMessage(plugin.getConfig().getString("lang.changed"));
-        	    	} else {
-        	    		sender.sendMessage(plugin.getConfig().getString("lang.deleted"));
-        	    	}
-        	    	if(ct) { CTagsH.setCTag(player, args[1]); }
+        	    	GMHandler.setGMop(args[1], args[2]);
+        	    	if(ct) { CTagsH.setCTagop(args[1], args[2]); }
         	    	break;
         	    default:
-        	    	sender.sendMessage(ChatColor.RED + "The mode of the plugin is not correct. Check the configuration.");
+        	    	sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("lang.corrupted"));
         	    	break;
             	}
         	} else {
