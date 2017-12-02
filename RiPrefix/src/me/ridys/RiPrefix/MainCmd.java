@@ -75,7 +75,20 @@ public class MainCmd implements CommandExecutor {
             	}
         	} else {
         		if (player.hasPermission("riprefix.set")) {
-        			sender.sendMessage("Set command: " + args[1] + args[2]);
+                	switch (m) {
+            		case 0:
+            			PEXHandler.setPEXop(args[1], args[2]);
+            			sender.sendMessage(plugin.getConfig().getString("lang.opchange"));
+            			if(ct) { CTagsH.setCTagop(args[1], args[2]); }
+            			break;
+            	    case 1:
+            	    	GMHandler.setGMop(args[1], args[2]);
+            	    	if(ct) { CTagsH.setCTagop(args[1], args[2]); }
+            	    	break;
+            	    default:
+            	    	sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("lang.corrupted"));
+            	    	break;
+                	}
         		} else {
         			sender.sendMessage(ChatColor.RED + p);
         		}
