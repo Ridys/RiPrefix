@@ -83,6 +83,7 @@ public class MainCmd implements CommandExecutor {
             			break;
             	    case 1:
             	    	GMHandler.setGMop(args[1], args[2]);
+            	    	sender.sendMessage(plugin.getConfig().getString("lang.opchange"));
             	    	if(ct) { CTagsH.setCTagop(args[1], args[2]); }
             	    	break;
             	    default:
