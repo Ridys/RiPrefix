@@ -8,7 +8,7 @@
        <resource>
          <targetPath>.</targetPath>
          <filtering>true</filtering>
-         <directory>${basedir}/src/main/</directory>
+         <directory>${basedir}/src/</directory>
          <includes>
            <include>*.yml</include>
          </includes>
