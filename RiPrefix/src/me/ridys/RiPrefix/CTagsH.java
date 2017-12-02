@@ -1,5 +1,7 @@
 package me.ridys.RiPrefix;
 
+import org.bukkit.Bukkit;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 import com.gmail.filoghost.coloredtags.ColoredTags;
@@ -25,5 +27,11 @@ public class CTagsH {
         ColoredTags.updateNametag(p);
         ColoredTags.updateTab(p);
     }
+	
+	public static void setCTagop(String p, String prefix) {
+		ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+		String command = "ctags player " + p + " " + prefix;
+		Bukkit.dispatchCommand(console, command);
+	}
 
 }

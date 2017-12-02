@@ -16,3 +16,4 @@ lang:
   perm: "You don't have permission to use this command."
   changed: "§aYour prefix has been successfully changed!"
   deleted: "§dYour prefix has been removed!"
+  opchange: "§dPlayer's prefix has been changed!"

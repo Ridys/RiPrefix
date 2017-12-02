@@ -59,7 +59,24 @@ public class MainCmd implements CommandExecutor {
         }
         if (args[0].equalsIgnoreCase("set") && args.length > 2 && args[1] != null && args[2] != null) {
         	if (player == null) {
-        		sender.sendMessage("Set command: " + args[1] + args[2]);
+            	switch (m) {
+        		case 0:
+        			PEXHandler.setPEXop(args[1], args[2]);
+        			sender.sendMessage(plugin.getConfig().getString("lang.opchange"));
+        			if(ct) { CTagsH.setCTagop(args[1], args[2]); }
+        			break;
+        	    case 1:
+        	    	if (GMHandler.setGM(player, args[1])) {
+        	    		sender.sendMessage(plugin.getConfig().getString("lang.changed"));
+        	    	} else {
+        	    		sender.sendMessage(plugin.getConfig().getString("lang.deleted"));
+        	    	}
+        	    	if(ct) { CTagsH.setCTag(player, args[1]); }
+        	    	break;
+        	    default:
+        	    	sender.sendMessage(ChatColor.RED + "The mode of the plugin is not correct. Check the configuration.");
+        	    	break;
+            	}
         	} else {
         		if (player.hasPermission("riprefix.set")) {
         			sender.sendMessage("Set command: " + args[1] + args[2]);

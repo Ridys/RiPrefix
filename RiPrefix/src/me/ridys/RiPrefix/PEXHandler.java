@@ -17,4 +17,8 @@ public class PEXHandler {
 		}
 	}
 
+	public static void setPEXop(String p, String prefix) {
+		PermissionUser user = PermissionsEx.getUser(p);
+		user.setPrefix(prefix, null);
+	}
 }
