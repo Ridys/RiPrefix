@@ -44,4 +44,10 @@ public class GMHandler {
 		Bukkit.dispatchCommand(console, command);
 	}
 
+	public static void resetGM(String p) {
+		ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+		String command = "manudelv " + p + " prefix";
+		Bukkit.dispatchCommand(console, command);
+	}
+
 }

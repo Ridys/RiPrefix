@@ -93,10 +93,37 @@ public class MainCmd implements CommandExecutor {
         }
         if (args[0].equalsIgnoreCase("reset") && args.length > 1 && args[1] != null) {
         	if (player == null) {
-        		sender.sendMessage("Reset command: " + args[1]);
+            	switch (m) {
+        		case 0:
+        			PEXHandler.resetPEX(args[1]);
+        			sender.sendMessage(plugin.getConfig().getString("lang.reset"));
+        			if(ct) { CTagsH.resetCTag(args[1]); }
+        			break;
+        	    case 1:
+        	    	GMHandler.resetGM(args[1]);
+        	    	if(ct) { CTagsH.resetCTag(args[1]); }
+        	    	break;
+        	    default:
+        	    	sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("lang.corrupted"));
+        	    	break;
+            	}
         	} else {
         		if (player.hasPermission("riprefix.reset")) {
-        			sender.sendMessage("Reset command: " + args[1]);
+                	switch (m) {
+            		case 0:
+            			PEXHandler.resetPEX(args[1]);
+            			sender.sendMessage(plugin.getConfig().getString("lang.reset"));
+            			if(ct) { CTagsH.resetCTag(args[1]); }
+            			break;
+            	    case 1:
+            	    	GMHandler.resetGM(args[1]);
+            	    	sender.sendMessage(plugin.getConfig().getString("lang.reset"));
+            	    	if(ct) { CTagsH.resetCTag(args[1]); }
+            	    	break;
+            	    default:
+            	    	sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("lang.corrupted"));
+            	    	break;
+                	}
         		} else {
         			sender.sendMessage(ChatColor.RED + p);
         		}

@@ -34,4 +34,10 @@ public class CTagsH {
 		Bukkit.dispatchCommand(console, command);
 	}
 
+	public static void resetCTag(String p) {
+		ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+		String command = "ctags player " + p + " " + "''";
+		Bukkit.dispatchCommand(console, command);		
+	}
+
 }

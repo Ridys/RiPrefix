@@ -17,3 +17,4 @@ lang:
   changed: "§aYour prefix has been successfully changed!"
   deleted: "§dYour prefix has been removed!"
   opchange: "§dPlayer's prefix has been changed!"
+  reset: "§aPlayer's prefix has been reset!"

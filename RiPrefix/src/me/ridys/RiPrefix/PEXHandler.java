@@ -21,4 +21,9 @@ public class PEXHandler {
 		PermissionUser user = PermissionsEx.getUser(p);
 		user.setPrefix(prefix, null);
 	}
+
+	public static void resetPEX(String p) {
+		PermissionUser user = PermissionsEx.getUser(p);
+		user.setPrefix("", null);
+	}
 }
