@@ -31,6 +31,10 @@
 		<id>spigot-repo</id>
 		<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
       </repository>
+      <repository>
+      	<id>my-repo</id>
+      	<url>https://dmitry.win/repo</url>
+      </repository>
   </repositories>
   <dependencies>
       <dependency>
@@ -40,6 +44,21 @@
 		<type>jar</type>
 		<scope>provided</scope>
       </dependency>
+	  <dependency>
+		<groupId>perms</groupId>
+		<artifactId>PermissionsEx</artifactId>
+		<version>1.23.4</version>
+	  </dependency>
+	  <dependency>
+		<groupId>perms</groupId>
+		<artifactId>EssentialsXGroupManager</artifactId>
+		<version>2.0.1</version>
+	  </dependency>
+	  <dependency>
+		<groupId>tabs</groupId>
+		<artifactId>ColoredTags</artifactId>
+		<version>1</version>
+	  </dependency>
   </dependencies>
   <url>https://ci.dmitry.win</url>
 </project>
