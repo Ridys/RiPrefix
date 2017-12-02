@@ -7,7 +7,6 @@ main:
   coloredtags: false
 lang:
 ### Language settings ###
-  player_only: "This command can only be run by a player"
   help_title: "Commands Help"
   help_help: "This help page"
   help_me: "Set prefix for you"

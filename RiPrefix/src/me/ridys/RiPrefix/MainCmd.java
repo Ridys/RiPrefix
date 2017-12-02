@@ -17,20 +17,15 @@ public class MainCmd implements CommandExecutor {
         Integer m = plugin.getConfig().getInt("main.mode");
         Boolean ct = plugin.getConfig().getBoolean("main.coloredtags");
         String p = plugin.getConfig().getString("lang.perm");
-        String o = plugin.getConfig().getString("lang.player_only");
         if (sender instanceof Player) {
             player = (Player) sender;
         }
-        if (args.length == 0) {
-	        if (player == null) {
-	            sender.sendMessage(ChatColor.DARK_RED + o);    
-	        } else {
-	            player.sendMessage(ChatColor.GREEN + "[RiPrefix] " + ChatColor.BLUE + plugin.getConfig().getString("lang.help_title"));
-	            player.sendMessage(ChatColor.GOLD + "/rips " + ChatColor.RED + plugin.getConfig().getString("lang.help_help"));
-	            player.sendMessage(ChatColor.GOLD + "/rips me [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_me"));
-	            player.sendMessage(ChatColor.GOLD + "/rips set [Player] [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_set"));
-	            player.sendMessage(ChatColor.GOLD + "/rips reset [Player] " + ChatColor.RED + plugin.getConfig().getString("lang.help_reset"));
-	        }
+        if (args.length == 0) {  
+	        sender.sendMessage(ChatColor.GREEN + "[RiPrefix] " + ChatColor.BLUE + plugin.getConfig().getString("lang.help_title"));
+	        sender.sendMessage(ChatColor.GOLD + "/rips " + ChatColor.RED + plugin.getConfig().getString("lang.help_help"));
+	        sender.sendMessage(ChatColor.GOLD + "/rips me [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_me"));
+	        sender.sendMessage(ChatColor.GOLD + "/rips set [Player] [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_set"));
+	        sender.sendMessage(ChatColor.GOLD + "/rips reset [Player] " + ChatColor.RED + plugin.getConfig().getString("lang.help_reset"));
 	        return true;
         }
         if (args[0].equalsIgnoreCase("me") && args.length > 1 && args[1] != null && player.hasPermission("riprefix.me")) {
