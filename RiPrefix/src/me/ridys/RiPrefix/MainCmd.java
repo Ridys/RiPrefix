@@ -26,6 +26,7 @@ public class MainCmd implements CommandExecutor {
 	        sender.sendMessage(ChatColor.GOLD + "/rips me [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_me"));
 	        sender.sendMessage(ChatColor.GOLD + "/rips set [Player] [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_set"));
 	        sender.sendMessage(ChatColor.GOLD + "/rips reset [Player] " + ChatColor.RED + plugin.getConfig().getString("lang.help_reset"));
+	        sender.sendMessage(ChatColor.GOLD + "/rips reload " + ChatColor.RED + plugin.getConfig().getString("lang.help_reload"));
 	        return true;
         }
         if (args[0].equalsIgnoreCase("me") && args.length > 1 && args[1] != null && player.hasPermission("riprefix.me")) {
