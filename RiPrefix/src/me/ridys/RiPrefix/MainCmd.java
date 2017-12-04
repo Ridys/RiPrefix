@@ -130,6 +130,20 @@ public class MainCmd implements CommandExecutor {
         	}
 	        return true;
         }
+        if (args[0].equalsIgnoreCase("reload")) {
+        	if (player == null) {
+        		plugin.reloadConfig();
+        		sender.sendMessage(ChatColor.RED + "Plugin reloaded");
+        	} else {
+        		if (player.hasPermission("riprefix.reload")) {
+        			plugin.reloadConfig();
+            		sender.sendMessage(ChatColor.RED + "Plugin reloaded");
+        		} else {
+        			sender.sendMessage(ChatColor.RED + p);
+        		}
+        	}
+        	return true;
+        }
 		return false;
     }
 }
