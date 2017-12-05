@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ridys.RiPrefix</groupId>
   <artifactId>RiPrefix</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <build>
     <resources>
        <resource>
@@ -24,6 +24,32 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+      	<groupId>org.apache.maven.plugins</groupId>
+      	<artifactId>maven-shade-plugin</artifactId>
+      	<version>2.4</version>
+      	<configuration>
+        	<artifactSet>
+          		<includes>
+            		<include>org.bstats:*</include>
+          		</includes>
+        	</artifactSet>
+        <relocations>
+			<relocation>
+            	<pattern>org.bstats</pattern>
+            	<shadedPattern>me.ridys.RiPrefix</shadedPattern>
+          	</relocation>
+        </relocations>
+      	</configuration>
+      	<executions>
+       		<execution>
+        		<phase>package</phase>
+          			<goals>
+            			<goal>shade</goal>
+          			</goals>
+        	</execution>
+      	</executions>
+    </plugin>
     </plugins>
   </build>
   <repositories>
@@ -35,6 +61,10 @@
       	<id>my-repo</id>
       	<url>https://dmitry.win/repo</url>
       </repository>
+      <repository>
+  		<id>bstats-repo</id>
+  		<url>http://repo.bstats.org/content/repositories/releases/</url>
+	  </repository>
   </repositories>
   <dependencies>
       <dependency>
@@ -58,6 +88,11 @@
 		<groupId>tabs</groupId>
 		<artifactId>ColoredTags</artifactId>
 		<version>1</version>
+	  </dependency>
+	  <dependency>
+		<groupId>org.bstats</groupId>
+  		<artifactId>bstats-bukkit</artifactId>
+  		<version>1.2</version>
 	  </dependency>
   </dependencies>
   <url>https://ci.dmitry.win</url>
