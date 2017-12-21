@@ -1,8 +1,4 @@
 main:
-# Select permissions plugin:
-# 0 - PermissionsEx
-# 1 - GroupManager
-  mode: 0
 # Enable (true) or disable (false) support ColoredTags plugin
   coloredtags: false
 lang:

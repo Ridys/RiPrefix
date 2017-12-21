@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ridys.RiPrefix</groupId>
   <artifactId>RiPrefix</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <build>
     <resources>
        <resource>
@@ -84,11 +84,11 @@
 		<artifactId>EssentialsXGroupManager</artifactId>
 		<version>2.0.1</version>
 	  </dependency>-->
-	  <dependency>
-		<groupId>perms</groupId>
-		<artifactId>EssentialsXGroupManager</artifactId>
-		<version>2.0.1</version>
-	  </dependency>
+ 	  <dependency>
+ 		<groupId>tabs</groupId>
+ 		<artifactId>ColoredTags</artifactId>
+ 		<version>1</version>
+ 	  </dependency>
 	  <dependency>
 		<groupId>libs</groupId>
 		<artifactId>Vault</artifactId>
