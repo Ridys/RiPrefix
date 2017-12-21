@@ -74,7 +74,7 @@
 		<type>jar</type>
 		<scope>provided</scope>
       </dependency>
-	  <dependency>
+	  <!--<dependency>
 		<groupId>perms</groupId>
 		<artifactId>PermissionsEx</artifactId>
 		<version>1.23.4</version>
@@ -83,11 +83,16 @@
 		<groupId>perms</groupId>
 		<artifactId>EssentialsXGroupManager</artifactId>
 		<version>2.0.1</version>
+	  </dependency>-->
+	  <dependency>
+		<groupId>perms</groupId>
+		<artifactId>EssentialsXGroupManager</artifactId>
+		<version>2.0.1</version>
 	  </dependency>
 	  <dependency>
-		<groupId>tabs</groupId>
-		<artifactId>ColoredTags</artifactId>
-		<version>1</version>
+		<groupId>libs</groupId>
+		<artifactId>Vault</artifactId>
+		<version>1.5.6</version>
 	  </dependency>
 	  <dependency>
 		<groupId>org.bstats</groupId>
@@ -95,5 +100,5 @@
   		<version>1.2</version>
 	  </dependency>
   </dependencies>
-  <url>https://ci.dmitry.win</url>
+  <url>https://ci.dmitry.win/job/RiPrefix/</url>
 </project>
