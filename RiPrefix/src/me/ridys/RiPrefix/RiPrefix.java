@@ -16,17 +16,17 @@ public class RiPrefix extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		Metrics metrics = new Metrics(this);
-	    try {
-	        if (!getDataFolder().exists()) {
-	            getDataFolder().mkdirs();
-	        }
-	        File file = new File(getDataFolder(), "config.yml");
-	        if (!file.exists()) {
-	            saveDefaultConfig();
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+		File file = new File(getDataFolder(), "config.yml");
+        if (!file.exists()) {
+            saveDefaultConfig();
+        }
+        Object configVersion = "1";
+		if (!getConfig().getString("version").equals(configVersion)) {
+			getConfig().options().copyDefaults(true);
+			getConfig().set("version", configVersion);
+	        saveConfig();
+	        log.info("Config file has been updated to " + configVersion + " version!");
+		}
 		MainCmdEx = new MainCmd(this);
 		getCommand("rips").setExecutor(MainCmdEx);
         if(getServer().getPluginManager().getPlugin("Vault") != null) { 
