@@ -15,6 +15,7 @@ public class MainCmd implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
         Player player = null;
         String p = plugin.getConfig().getString("lang.perm");
+        Boolean ct = plugin.getConfig().getBoolean("main.coloredtags");
         if (sender instanceof Player) {
             player = (Player) sender;
         }
@@ -30,22 +31,26 @@ public class MainCmd implements CommandExecutor {
         }
         if (args[0].equalsIgnoreCase("me") && args.length > 1 && args[1] != null && player.hasPermission("riprefix.me")) {
         	ChatHandler.meCMD(player, args[1]);
+        	if(ct) { CTagsHandler.setTabTag(player, args[1]); }
         	sender.sendMessage(plugin.getConfig().getString("lang.changed"));
 	        return true;
         }
         if (args[0].equalsIgnoreCase("clear") && player.hasPermission("riprefix.clear")) {
         	ChatHandler.clearCMD(player);
+        	if(ct) { CTagsHandler.removeTabTag(player); }
         	sender.sendMessage(plugin.getConfig().getString("lang.deleted"));
 	        return true;
         }
         if (args[0].equalsIgnoreCase("set") && args.length > 2 && args[1] != null && args[2] != null) {
         	if (player == null) {
         		if (ChatHandler.setCMD(args[1], args[2])) {
+        			if(ct) { CTagsHandler.setTabTag(args[1], args[2]); }
         			sender.sendMessage(plugin.getConfig().getString("lang.opchange"));
         		} else { sender.sendMessage(plugin.getConfig().getString("lang.corrupted")); }
             } else {
             	if (player.hasPermission("riprefix.set")) {
             		if (ChatHandler.setCMD(args[1], args[2])) {
+            			if(ct) { CTagsHandler.setTabTag(args[1], args[2]); }
             			sender.sendMessage(plugin.getConfig().getString("lang.opchange"));
             		} else { sender.sendMessage(plugin.getConfig().getString("lang.corrupted")); }
         		} else {
@@ -57,11 +62,13 @@ public class MainCmd implements CommandExecutor {
         if (args[0].equalsIgnoreCase("reset") && args.length > 1 && args[1] != null) {
         	if (player == null) {
         		if (ChatHandler.resetCMD(args[1])) {
+        			if(ct) { CTagsHandler.removeTabTag(args[1]); }
         			sender.sendMessage(plugin.getConfig().getString("lang.reset"));
         		} else { sender.sendMessage(plugin.getConfig().getString("lang.corrupted")); }
         	} else {
         		if (player.hasPermission("riprefix.reset")) {
             		if (ChatHandler.resetCMD(args[1])) {
+            			if(ct) { CTagsHandler.removeTabTag(args[1]); }
             			sender.sendMessage(plugin.getConfig().getString("lang.reset"));
             		} else { sender.sendMessage(plugin.getConfig().getString("lang.corrupted")); }
         		} else {
