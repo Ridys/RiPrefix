@@ -1,4 +1,12 @@
 main:
+# Plugin will add this prefix to any prefix in game chat
+  left-chat-text: "&6["
+# Plugin will add this suffix to any prefix in game chat
+  right-chat-text: "&6]"
+# Plugin will add this prefix to any prefix in TAB (ColoredTags)
+  left-tab-text: "&c["
+# Plugin will add this suffix to any prefix in TAB (ColoredTags)
+  right-tab-text: "&c] "
 # Enable (true) or disable (false) support ColoredTags plugin
   coloredtags: false
 lang:
