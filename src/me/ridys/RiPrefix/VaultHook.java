@@ -6,13 +6,13 @@ import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit; 
 import org.bukkit.plugin.RegisteredServiceProvider; 
 
-public class VaultHook {
+class VaultHook {
 
-    public static Permission permission = null; 
-    public static Economy economy = null; 
-    public static Chat chat = null; 
+    private static Permission permission = null;
+    private static Economy economy = null;
+    static Chat chat = null;
  
-    public VaultHook() { 
+    VaultHook() {
         setupChat(); 
         setupEconomy(); 
         setupPermissions(); 

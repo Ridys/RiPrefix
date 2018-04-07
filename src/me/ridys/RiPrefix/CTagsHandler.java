@@ -7,9 +7,9 @@ import com.gmail.filoghost.coloredtags.ColoredTags;
 import com.gmail.filoghost.coloredtags.ScoreboardHandler;
 import com.gmail.filoghost.coloredtags.TeamData;
 
-public class CTagsHandler {
+class CTagsHandler {
 
-	public static void setTabTag(Player p, String prefix) {
+	static void setTabTag(Player p, String prefix) {
 		TeamData data = TeamData.fromString(prefix);
         ColoredTags.playersConfig.set(p.getName(),data.getPrefix());
         ColoredTags.playersConfig.trySave();
@@ -19,7 +19,7 @@ public class CTagsHandler {
         ColoredTags.updateTab(p);
 	}
 
-	public static void setTabTag(String player, String prefix) {
+	static void setTabTag(String player, String prefix) {
 		Player p = Bukkit.getPlayer(player);
 		TeamData data = TeamData.fromString(prefix);
         ColoredTags.playersConfig.set(p.getName(),data.getPrefix());
@@ -30,7 +30,7 @@ public class CTagsHandler {
         ColoredTags.updateTab(p);
 	}
 	
-	public static void removeTabTag(Player p) {
+	static void removeTabTag(Player p) {
         ColoredTags.playersConfig.set(p.getName(),null);
         ColoredTags.playersConfig.trySave();
         ColoredTags.playersMap.remove(p.getName().toLowerCase());
@@ -39,7 +39,7 @@ public class CTagsHandler {
         ColoredTags.updateTab(p);
 	}
 
-	public static void removeTabTag(String player) {
+	static void removeTabTag(String player) {
 		Player p = Bukkit.getPlayer(player);
         ColoredTags.playersConfig.set(p.getName(),null);
         ColoredTags.playersConfig.trySave();

@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class MainCmd implements CommandExecutor {
 	private RiPrefix plugin;
-    public MainCmd(RiPrefix plugin) {
+	MainCmd(RiPrefix plugin) {
         this.plugin = plugin;
     }
     @Override
