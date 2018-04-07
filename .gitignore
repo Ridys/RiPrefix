@@ -27,3 +27,6 @@ hs_err_pid*
 
 # InteliJ Idea
 .idea
+/out
+/META-INF
+dependency-reduced-pom.xml
