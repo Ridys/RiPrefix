@@ -36,10 +36,9 @@ public class MainCmd implements CommandExecutor {
 	        return true;
         }
         if (args[0].equalsIgnoreCase("me") && args.length > 1 && args[1] != null && player.hasPermission("riprefix.me")) {
-            if (checkIgnorePrefixes(args[1])) {
-                sender.sendMessage(plugin.getConfig().getString("lang.forbidden"));
-                return true;
-            }
+            if (checkIgnorePrefixes(args[1], sender) || checkPrefixLength(args[1], sender)) {
+				return true;
+			}
         	String px = c_left + args[1] + c_right;
         	String ct_px = t_left + args[1] + t_right;
         	ChatHandler.meCMD(player, px);
@@ -54,6 +53,9 @@ public class MainCmd implements CommandExecutor {
 	        return true;
         }
         if (args[0].equalsIgnoreCase("set") && args.length > 2 && args[1] != null && args[2] != null) {
+			if (checkPrefixLength(args[2], sender)) {
+				return true;
+			}
         	String px = c_left + args[2] + c_right;
         	String ct_px = t_left + args[2] + t_right;
         	if (player == null) {
@@ -108,10 +110,23 @@ public class MainCmd implements CommandExecutor {
 		return false;
     }
 
-    private boolean checkIgnorePrefixes(String prefix) {
+    private boolean checkIgnorePrefixes(String prefix, CommandSender sender) {
 	    prefix = prefix.toLowerCase();
-        List<String> prefixes = plugin.getConfig().getStringList("main.ignore-prefixes");
-        for (String temp : prefixes) if (prefix.contains(temp.toLowerCase())) return true;
+        List<String> prefixes = plugin.getConfig().getStringList("misc.ignore-prefixes");
+        for (String temp : prefixes) if (prefix.contains(temp.toLowerCase())) {
+			sender.sendMessage(plugin.getConfig().getString("lang.forbidden"));
+			return true;
+		}
         return false;
     }
+
+    private boolean checkPrefixLength(String prefix, CommandSender sender) {
+		Integer min_length = plugin.getConfig().getInt("misc.min-prefix-length");
+		Integer max_length = plugin.getConfig().getInt("misc.max-prefix-length");
+		if (prefix.length() > max_length || prefix.length() < min_length) {
+			sender.sendMessage(plugin.getConfig().getString("lang.length_check_failed"));
+			return true;
+		}
+		return false;
+	}
 }

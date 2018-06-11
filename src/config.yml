@@ -10,6 +10,12 @@ main:
   right-tab-text: "&c] "
 # Enable (true) or disable (false) support ColoredTags plugin
   coloredtags: false
+misc:
+# Minimum prefix length (with special symbols)
+  min-prefix-length: 3
+# Maximum prefix length (with special symbols)
+  max-prefix-length: 16
+# Specify words that are not allowed in the prefix
   ignore-prefixes:
     - Admin
     - Moderator
@@ -29,5 +35,6 @@ lang:
   opchange: "§dPlayer's prefix has been changed!"
   reset: "§aPlayer's prefix has been reset!"
   forbidden: "§cThe prefix contains forbidden words."
+  length_check_failed: "§cThe prefix can contain at least 3 characters and not more than 16 characters."
 # don't change this
 version: 2
