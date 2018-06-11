@@ -17,7 +17,7 @@ public class RiPrefix extends JavaPlugin {
         if (!file.exists()) {
             saveDefaultConfig();
         }
-        Object configVersion = "1";
+        Object configVersion = "2"; // config version
 		if (!getConfig().getString("version").equals(configVersion)) {
 			getConfig().options().copyDefaults(true);
 			getConfig().set("version", configVersion);

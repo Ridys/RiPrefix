@@ -10,6 +10,9 @@ main:
   right-tab-text: "&c] "
 # Enable (true) or disable (false) support ColoredTags plugin
   coloredtags: false
+  ignore-prefixes:
+    - Admin
+    - Moderator
 lang:
 ### Language settings ###
   help_title: "Commands Help"
@@ -25,5 +28,6 @@ lang:
   deleted: "§dYour prefix has been removed!"
   opchange: "§dPlayer's prefix has been changed!"
   reset: "§aPlayer's prefix has been reset!"
+  forbidden: "§cThe prefix contains forbidden words."
 # don't change this
-version: 1
+version: 2

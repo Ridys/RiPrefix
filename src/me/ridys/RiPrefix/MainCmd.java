@@ -6,13 +6,15 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class MainCmd implements CommandExecutor {
 	private RiPrefix plugin;
 	MainCmd(RiPrefix plugin) {
         this.plugin = plugin;
     }
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
+    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         Player player = null;
         String p = plugin.getConfig().getString("lang.perm");
         String c_left = plugin.getConfig().getString("main.left-chat-text");
@@ -34,6 +36,10 @@ public class MainCmd implements CommandExecutor {
 	        return true;
         }
         if (args[0].equalsIgnoreCase("me") && args.length > 1 && args[1] != null && player.hasPermission("riprefix.me")) {
+            if (checkIgnorePrefixes(args[1])) {
+                sender.sendMessage(plugin.getConfig().getString("lang.forbidden"));
+                return true;
+            }
         	String px = c_left + args[1] + c_right;
         	String ct_px = t_left + args[1] + t_right;
         	ChatHandler.meCMD(player, px);
@@ -100,5 +106,12 @@ public class MainCmd implements CommandExecutor {
         	return true;
         }
 		return false;
+    }
+
+    private boolean checkIgnorePrefixes(String prefix) {
+	    prefix = prefix.toLowerCase();
+        List<String> prefixes = plugin.getConfig().getStringList("main.ignore-prefixes");
+        for (String temp : prefixes) if (prefix.contains(temp.toLowerCase())) return true;
+        return false;
     }
 }
