@@ -46,5 +46,5 @@ class VaultHook {
  
         return (economy != null); 
     } 
-	
+
 }
