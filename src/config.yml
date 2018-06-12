@@ -36,5 +36,6 @@ lang:
   reset: "§aPlayer's prefix has been reset!"
   forbidden: "§cThe prefix contains forbidden words."
   length_check_failed: "§cThe prefix can contain at least 3 characters and not more than 16 characters."
+  player_only: "§cOnly players can use this"
 # don't change this
-version: 2
+version: 3
