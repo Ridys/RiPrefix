@@ -28,7 +28,7 @@ lang:
   help_set: "Set prefix for player"
   help_reset: "Reset player prefix"
   help_reload: "Reload RiPrefix config"
-  perm: "You don't have permission to use this command."
+  perm: "§cYou don't have permission to use this command."
   corrupted: "§cERROR: Player not found!"
   changed: "§aYour prefix has been successfully changed!"
   deleted: "§dYour prefix has been removed!"

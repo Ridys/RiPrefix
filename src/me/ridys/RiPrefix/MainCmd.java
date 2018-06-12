@@ -46,7 +46,7 @@ public class MainCmd implements CommandExecutor {
                     sender.sendMessage(ChatColor.GOLD + "/rips reload " + ChatColor.RED + plugin.getConfig().getString("lang.help_reload"));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + havenot_perm);
+                sender.sendMessage(havenot_perm);
             }
             return true;
         }
@@ -59,12 +59,10 @@ public class MainCmd implements CommandExecutor {
                     String px = c_left + args[1] + c_right;
                     String ct_px = t_left + args[1] + t_right;
                     ChatHandler.meCMD(player, px);
-                    if (ct) {
-                        CTagsHandler.setTabTag(player, ct_px);
-                    }
+                    if (ct) CTagsHandler.setTabTag(player, ct_px);
                     sender.sendMessage(plugin.getConfig().getString("lang.changed"));
-                } else sender.sendMessage(ChatColor.RED + havenot_perm);
-            } else sender.sendMessage(ChatColor.RED + not_player);
+                } else sender.sendMessage(havenot_perm);
+            } else sender.sendMessage(not_player);
             return true;
         }
         if (args[0].equalsIgnoreCase("clear")) {
@@ -73,8 +71,8 @@ public class MainCmd implements CommandExecutor {
                     ChatHandler.clearCMD(player);
                     if (ct) CTagsHandler.removeTabTag(player);
                     sender.sendMessage(plugin.getConfig().getString("lang.deleted"));
-                } else sender.sendMessage(ChatColor.RED + havenot_perm);
-            } else sender.sendMessage(ChatColor.RED + not_player);
+                } else sender.sendMessage(havenot_perm);
+            } else sender.sendMessage(not_player);
             return true;
         }
         if (args[0].equalsIgnoreCase("set") && args.length > 2 && args[1] != null && args[2] != null) {
@@ -85,7 +83,7 @@ public class MainCmd implements CommandExecutor {
             String ct_px = t_left + args[2] + t_right;
             if (player != null) {
                 if (!player.hasPermission("riprefix.set")) {
-                    sender.sendMessage(ChatColor.RED + havenot_perm);
+                    sender.sendMessage(havenot_perm);
                     return true;
                 }
             }
@@ -98,7 +96,7 @@ public class MainCmd implements CommandExecutor {
         if (args[0].equalsIgnoreCase("reset") && args.length > 1 && args[1] != null) {
             if (player != null) {
                 if (!player.hasPermission("riprefix.reset")) {
-                    sender.sendMessage(ChatColor.RED + havenot_perm);
+                    sender.sendMessage(havenot_perm);
                     return true;
                 }
             }
@@ -111,7 +109,7 @@ public class MainCmd implements CommandExecutor {
         if (args[0].equalsIgnoreCase("reload")) {
             if (player != null) {
                 if (!player.hasPermission("riprefix.reload")) {
-                    sender.sendMessage(ChatColor.RED + havenot_perm);
+                    sender.sendMessage(havenot_perm);
                     return true;
                 }
             }
