@@ -25,14 +25,28 @@ public class MainCmd implements CommandExecutor {
         if (sender instanceof Player) {
             player = (Player) sender;
         }
-        if (args.length == 0) {  
-            sender.sendMessage(ChatColor.GREEN + "[RiPrefix] " + ChatColor.BLUE + plugin.getConfig().getString("lang.help_title"));
-            sender.sendMessage(ChatColor.GOLD + "/rips " + ChatColor.RED + plugin.getConfig().getString("lang.help_help"));
-            sender.sendMessage(ChatColor.GOLD + "/rips clear " + ChatColor.RED + plugin.getConfig().getString("lang.help_clear"));
-            sender.sendMessage(ChatColor.GOLD + "/rips me [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_me"));
-            sender.sendMessage(ChatColor.GOLD + "/rips set [Player] [Prefix] " + ChatColor.RED + plugin.getConfig().getString("lang.help_set"));
-            sender.sendMessage(ChatColor.GOLD + "/rips reset [Player] " + ChatColor.RED + plugin.getConfig().getString("lang.help_reset"));
-            sender.sendMessage(ChatColor.GOLD + "/rips reload " + ChatColor.RED + plugin.getConfig().getString("lang.help_reload"));
+        if (args.length == 0) {
+            if (sender.hasPermission("riprefix.help")) {
+                sender.sendMessage(ChatColor.GREEN + "[RiPrefix] " + ChatColor.BLUE + plugin.getConfig().getString("lang.help_title"));
+                sender.sendMessage(ChatColor.GOLD + "/rips " + ChatColor.RED + plugin.getConfig().getString("lang.help_help"));
+                if (sender.hasPermission("riprefix.clear")) {
+                    sender.sendMessage(ChatColor.GOLD + "/rips clear " + ChatColor.RED + plugin.getConfig().getString("lang.help_clear"));
+                }
+                if (sender.hasPermission("riprefix.me")) {
+                    sender.sendMessage(ChatColor.GOLD + "/rips me <prefix> " + ChatColor.RED + plugin.getConfig().getString("lang.help_me"));
+                }
+                if (sender.hasPermission("riprefix.set")) {
+                    sender.sendMessage(ChatColor.GOLD + "/rips set <player> <prefix> " + ChatColor.RED + plugin.getConfig().getString("lang.help_set"));
+                }
+                if (sender.hasPermission("riprefix.reset")) {
+                    sender.sendMessage(ChatColor.GOLD + "/rips reset [Player] " + ChatColor.RED + plugin.getConfig().getString("lang.help_reset"));
+                }
+                if (sender.hasPermission("riprefix.reload")) {
+                    sender.sendMessage(ChatColor.GOLD + "/rips reload " + ChatColor.RED + plugin.getConfig().getString("lang.help_reload"));
+                }
+            } else {
+                sender.sendMessage(ChatColor.RED + p);
+            }
             return true;
         }
         if (args[0].equalsIgnoreCase("me") && args.length > 1 && args[1] != null && player.hasPermission("riprefix.me")) {

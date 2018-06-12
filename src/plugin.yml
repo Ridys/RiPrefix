@@ -10,3 +10,8 @@ commands:
    rips:
       description: Plugin help
       usage: Use /rips for help with this command
+
+permissions:
+  riprefix.help:
+    default: true
+    description: Allows you to view the help page
