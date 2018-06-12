@@ -12,6 +12,9 @@ commands:
       usage: Use /rips for help with this command
 
 permissions:
+  riprefix.*:
+    default: op
+    description: Give players with op everything by default
   riprefix.help:
     default: true
     description: Allows you to view the help page
